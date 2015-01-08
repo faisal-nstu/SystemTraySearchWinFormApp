@@ -33,7 +33,7 @@ namespace SystemTraySearchWinFormApp
 
             _engine = "Google";
             notifyIcon.Icon = SystemTraySearchWinFormApp.Properties.Resources.sysTraySearchIcon;
-            notifyIcon.Text = "Click to Search " + _engine;
+            notifyIcon.Text = "Click to Search";
             notifyIcon.Click += NotifyIconOnClick;
             notifyIcon.ContextMenu = new ContextMenu(new MenuItem[]{engineSelector, exitMenuItem});
             notifyIcon.Visible = true;
