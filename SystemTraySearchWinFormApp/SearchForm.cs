@@ -59,7 +59,7 @@ namespace SystemTraySearchWinFormApp
             {
                 try
                 {
-                    var res = "https://duckduckgo.com/?q" + HttpUtility.UrlEncode(searchTerm);
+                    var res = "https://duckduckgo.com/?q=" + HttpUtility.UrlEncode(searchTerm);
                     Process.Start(res);
                 }
                 catch (Exception e)
