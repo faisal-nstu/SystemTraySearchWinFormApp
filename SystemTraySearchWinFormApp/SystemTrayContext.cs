@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +16,8 @@ namespace SystemTraySearchWinFormApp
     {
         private NotifyIcon notifyIcon;
         private SearchForm searchForm;
-        private bool _isFirstRun = true;
-
+        private MenuItem toggleStartUp,startup;
+        private bool _isStartUpEnabled = false;
         private string _engine;
 
 
@@ -25,20 +27,42 @@ namespace SystemTraySearchWinFormApp
         {
             notifyIcon = new NotifyIcon();
             MenuItem exitMenuItem = new MenuItem("Exit", Exit);
+            // Engine selector context menu
             MenuItem googleSelectorMenu = new MenuItem("Google", EngineSelected);
             MenuItem bingSelectorMenu = new MenuItem("Bing", EngineSelected);
             MenuItem duckDuckGoSelectorMenu = new MenuItem("Duck Duck Go", EngineSelected);
             MenuItem wikipediaSelectorMenu = new MenuItem("Wikipedia", EngineSelected);
             MenuItem engineSelector = new MenuItem("Select Engines", new MenuItem[]{googleSelectorMenu, bingSelectorMenu, duckDuckGoSelectorMenu, wikipediaSelectorMenu});
+            //****************************************************************************
 
+            // Start up settings context menu
+            toggleStartUp = new MenuItem("Enable", ToggleStartUp);
+            startup = new MenuItem("Start with Windows", new MenuItem[]{toggleStartUp});
+            //****************************************************************************
             _engine = "Google";
             notifyIcon.Icon = SystemTraySearchWinFormApp.Properties.Resources.sysTraySearchIcon;
             notifyIcon.Text = "Click to Search";
             notifyIcon.Click += NotifyIconOnClick;
-            notifyIcon.ContextMenu = new ContextMenu(new MenuItem[]{engineSelector, exitMenuItem});
+            notifyIcon.ContextMenu = new ContextMenu(new MenuItem[]{startup,engineSelector, exitMenuItem});
             notifyIcon.Visible = true;
             //SearchForm._formSearchEngine = Engine;
             
+        }
+
+        private void ToggleStartUp(object sender, EventArgs e)
+        {
+            if (_isStartUpEnabled == false)
+            {
+                CreateShortcut();
+                toggleStartUp.Text = "Disable";
+                _isStartUpEnabled = true;
+            }
+            else
+            {
+                RemoveShortcut();
+                toggleStartUp.Text = "Enable";
+                _isStartUpEnabled = false;
+            }
         }
 
         private void NotifyIconOnClick(object sender, EventArgs eventArgs)
@@ -90,6 +114,39 @@ namespace SystemTraySearchWinFormApp
         {
             _engine = (sender as MenuItem).Text;
             SearchForm.FormSearchEngine = _engine;
+        }
+
+        private void CreateShortcut()
+        {
+            Type t = Type.GetTypeFromCLSID(new Guid("72C24DD5-D70A-438B-8A42-98424B88AFB8")); //Windows Script Host Shell Object
+            dynamic shell = Activator.CreateInstance(t);
+            try
+            {
+                var lnk = shell.CreateShortcut(Environment.GetFolderPath(Environment.SpecialFolder.Startup) + "\\QuickSearch.lnk");
+                try
+                {
+                    lnk.TargetPath = Application.ExecutablePath;
+                    lnk.IconLocation = "shell32.dll, 1";
+                    lnk.Save();
+                }
+                finally
+                {
+                    Marshal.FinalReleaseComObject(lnk);
+                }
+            }
+            finally
+            {
+                Marshal.FinalReleaseComObject(shell);
+            }
+        }
+
+        private void RemoveShortcut()
+        {
+            string startUpPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            if (System.IO.File.Exists(Path.Combine(startUpPath, "QuickSearch.lnk")))
+            {
+                System.IO.File.Delete(Path.Combine(startUpPath, "QuickSearch.lnk"));
+            }
         }
     }
 }
