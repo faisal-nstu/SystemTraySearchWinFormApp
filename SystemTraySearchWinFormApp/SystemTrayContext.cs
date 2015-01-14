@@ -67,20 +67,25 @@ namespace SystemTraySearchWinFormApp
 
         private void NotifyIconOnClick(object sender, EventArgs eventArgs)
         {
-            if (searchForm == null)
+            if ((eventArgs as MouseEventArgs).Button == MouseButtons.Left)
             {
-                searchForm = new SearchForm();
-                ShowSearchForm();
-            }
-            else
-            {
-                if (searchForm.WindowState == FormWindowState.Minimized)
+                if (searchForm == null)
                 {
+                    searchForm = new SearchForm();
                     ShowSearchForm();
                 }
                 else
                 {
-                    searchForm.WindowState = FormWindowState.Minimized;
+                    //if (searchForm.WindowState == FormWindowState.Minimized)
+                    //{
+                    //    ShowSearchForm();
+                    //}
+                    //else
+                    //{
+                    //    searchForm.WindowState = FormWindowState.Minimized;
+                    //}
+                    searchForm.Dispose();
+                    searchForm = null;
                 }
             }
         }
