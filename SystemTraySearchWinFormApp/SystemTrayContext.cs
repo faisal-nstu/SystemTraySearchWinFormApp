@@ -16,7 +16,7 @@ namespace SystemTraySearchWinFormApp
     {
         private NotifyIcon notifyIcon;
         private SearchForm searchForm;
-        private MenuItem toggleStartUp,startup;
+        private MenuItem toggleStartUp, startup, googleSelectorMenu, bingSelectorMenu, duckDuckGoSelectorMenu, wikipediaSelectorMenu, engineSelector;
         private bool _isStartUpEnabled = false;
         private string _engine;
 
@@ -27,12 +27,13 @@ namespace SystemTraySearchWinFormApp
         {
             notifyIcon = new NotifyIcon();
             MenuItem exitMenuItem = new MenuItem("Exit", Exit);
+
             // Engine selector context menu
-            MenuItem googleSelectorMenu = new MenuItem("Google", EngineSelected);
-            MenuItem bingSelectorMenu = new MenuItem("Bing", EngineSelected);
-            MenuItem duckDuckGoSelectorMenu = new MenuItem("Duck Duck Go", EngineSelected);
-            MenuItem wikipediaSelectorMenu = new MenuItem("Wikipedia", EngineSelected);
-            MenuItem engineSelector = new MenuItem("Select Engines", new MenuItem[]{googleSelectorMenu, bingSelectorMenu, duckDuckGoSelectorMenu, wikipediaSelectorMenu});
+            googleSelectorMenu = new MenuItem("Google", EngineSelected);
+            bingSelectorMenu = new MenuItem("Bing", EngineSelected);
+            duckDuckGoSelectorMenu = new MenuItem("Duck Duck Go", EngineSelected);
+            wikipediaSelectorMenu = new MenuItem("Wikipedia", EngineSelected);
+            engineSelector = new MenuItem("Select Engines", new MenuItem[]{googleSelectorMenu, bingSelectorMenu, duckDuckGoSelectorMenu, wikipediaSelectorMenu});
             //****************************************************************************
 
             // Start up settings context menu
@@ -45,8 +46,6 @@ namespace SystemTraySearchWinFormApp
             notifyIcon.Click += NotifyIconOnClick;
             notifyIcon.ContextMenu = new ContextMenu(new MenuItem[]{startup,engineSelector, exitMenuItem});
             notifyIcon.Visible = true;
-            //SearchForm._formSearchEngine = Engine;
-            
         }
 
         private void ToggleStartUp(object sender, EventArgs e)
@@ -117,8 +116,42 @@ namespace SystemTraySearchWinFormApp
 
         private void EngineSelected(object sender, EventArgs e)
         {
+            (sender as MenuItem).Checked = true;
+            SearchEngineCheckChange(sender);
             _engine = (sender as MenuItem).Text;
             SearchForm.FormSearchEngine = _engine;
+        }
+
+        private void SearchEngineCheckChange(object sender)
+        {
+            if (sender == googleSelectorMenu)
+            {
+                googleSelectorMenu.Checked = true;
+                bingSelectorMenu.Checked = false;
+                duckDuckGoSelectorMenu.Checked = false;
+                wikipediaSelectorMenu.Checked = false;
+            }
+            if (sender == bingSelectorMenu)
+            {
+                googleSelectorMenu.Checked = false;
+                bingSelectorMenu.Checked = true;
+                duckDuckGoSelectorMenu.Checked = false;
+                wikipediaSelectorMenu.Checked = false;
+            }
+            if (sender == duckDuckGoSelectorMenu)
+            {
+                googleSelectorMenu.Checked = false;
+                bingSelectorMenu.Checked = false;
+                duckDuckGoSelectorMenu.Checked = true;
+                wikipediaSelectorMenu.Checked = false;
+            }
+            if (sender == wikipediaSelectorMenu)
+            {
+                googleSelectorMenu.Checked = false;
+                bingSelectorMenu.Checked = false;
+                duckDuckGoSelectorMenu.Checked = false;
+                wikipediaSelectorMenu.Checked = true;
+            }
         }
 
         private void CreateShortcut()
