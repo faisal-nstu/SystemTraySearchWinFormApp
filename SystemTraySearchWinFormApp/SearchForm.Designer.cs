@@ -34,6 +34,7 @@ namespace SystemTraySearchWinFormApp
             this.label1 = new System.Windows.Forms.Label();
             this.searchTextbox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.clearButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -75,12 +76,28 @@ namespace SystemTraySearchWinFormApp
             this.searchButton.UseVisualStyleBackColor = false;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // clearButton
+            // 
+            this.clearButton.BackColor = System.Drawing.Color.Gray;
+            this.clearButton.FlatAppearance.BorderSize = 0;
+            this.clearButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.clearButton.ForeColor = System.Drawing.Color.Gainsboro;
+            this.clearButton.Location = new System.Drawing.Point(247, 31);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(23, 23);
+            this.clearButton.TabIndex = 7;
+            this.clearButton.Text = "X";
+            this.clearButton.UseVisualStyleBackColor = false;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
+            // 
             // SearchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(316, 69);
+            this.Controls.Add(this.clearButton);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextbox);
             this.Controls.Add(this.label1);
@@ -97,6 +114,7 @@ namespace SystemTraySearchWinFormApp
         private Label label1;
         private TextBox searchTextbox;
         private Button searchButton;
+        private Button clearButton;
 
     }
 }

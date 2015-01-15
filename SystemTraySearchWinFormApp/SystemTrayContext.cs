@@ -40,7 +40,10 @@ namespace SystemTraySearchWinFormApp
             toggleStartUp = new MenuItem("Enable", ToggleStartUp);
             startup = new MenuItem("Start with Windows", new MenuItem[]{toggleStartUp});
             //****************************************************************************
+            
             _engine = "Google";
+            googleSelectorMenu.Checked = true;
+
             notifyIcon.Icon = SystemTraySearchWinFormApp.Properties.Resources.sysTraySearchIcon;
             notifyIcon.Text = "Click to Search";
             notifyIcon.Click += NotifyIconOnClick;

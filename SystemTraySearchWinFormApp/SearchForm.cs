@@ -19,7 +19,21 @@ namespace SystemTraySearchWinFormApp
         {
             InitializeComponent();
             this.ShowInTaskbar = false;
+            clearButton.Visible = false;
             searchTextbox.KeyPress += SearchTextboxOnKeyPress;
+            searchTextbox.TextChanged += SearchTextboxOnTextChanged;
+        }
+
+        private void SearchTextboxOnTextChanged(object sender, EventArgs eventArgs)
+        {
+            if (searchTextbox.Text == "")
+            {
+                clearButton.Visible = false;
+            }
+            else
+            {
+                clearButton.Visible = true;
+            }
         }
 
         private void SearchTextboxOnKeyPress(object sender, KeyPressEventArgs e)
@@ -85,6 +99,11 @@ namespace SystemTraySearchWinFormApp
         {
             Search();
             
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            searchTextbox.Text = "";
         }
     }
 }

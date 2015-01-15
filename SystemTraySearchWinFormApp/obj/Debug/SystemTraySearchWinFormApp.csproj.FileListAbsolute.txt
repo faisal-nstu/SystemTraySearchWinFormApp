@@ -7,12 +7,3 @@ c:\users\faisal amin\documents\visual studio 2013\Projects\SystemTraySearchWinFo
 c:\users\faisal amin\documents\visual studio 2013\Projects\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.csproj.GenerateResource.Cache
 c:\users\faisal amin\documents\visual studio 2013\Projects\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.exe
 c:\users\faisal amin\documents\visual studio 2013\Projects\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.pdb
-E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\bin\Debug\QuickSearch.exe.config
-E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\bin\Debug\QuickSearch.exe
-E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\bin\Debug\QuickSearch.pdb
-E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.csprojResolveAssemblyReference.cache
-E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.Properties.Resources.resources
-E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.SearchForm.resources
-E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.csproj.GenerateResource.Cache
-E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\QuickSearch.exe
-E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\QuickSearch.pdb
