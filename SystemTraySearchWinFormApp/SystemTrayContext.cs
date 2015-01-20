@@ -128,34 +128,48 @@ namespace SystemTraySearchWinFormApp
 
         private void SearchEngineCheckChange(object sender)
         {
-            if (sender == googleSelectorMenu)
+            foreach (var menuItem in engineSelector.MenuItems)
             {
-                googleSelectorMenu.Checked = true;
-                bingSelectorMenu.Checked = false;
-                duckDuckGoSelectorMenu.Checked = false;
-                wikipediaSelectorMenu.Checked = false;
+                if (menuItem == sender)
+                {
+                    (menuItem as MenuItem).Checked = true;
+                }
+                else
+                {
+                    (menuItem as MenuItem).Checked = false;
+                }
             }
-            if (sender == bingSelectorMenu)
-            {
-                googleSelectorMenu.Checked = false;
-                bingSelectorMenu.Checked = true;
-                duckDuckGoSelectorMenu.Checked = false;
-                wikipediaSelectorMenu.Checked = false;
-            }
-            if (sender == duckDuckGoSelectorMenu)
-            {
-                googleSelectorMenu.Checked = false;
-                bingSelectorMenu.Checked = false;
-                duckDuckGoSelectorMenu.Checked = true;
-                wikipediaSelectorMenu.Checked = false;
-            }
-            if (sender == wikipediaSelectorMenu)
-            {
-                googleSelectorMenu.Checked = false;
-                bingSelectorMenu.Checked = false;
-                duckDuckGoSelectorMenu.Checked = false;
-                wikipediaSelectorMenu.Checked = true;
-            }
+
+            #region previous code
+            //if (sender == googleSelectorMenu)
+            //{
+            //    googleSelectorMenu.Checked = true;
+            //    bingSelectorMenu.Checked = false;
+            //    duckDuckGoSelectorMenu.Checked = false;
+            //    wikipediaSelectorMenu.Checked = false;
+            //}
+            //if (sender == bingSelectorMenu)
+            //{
+            //    googleSelectorMenu.Checked = false;
+            //    bingSelectorMenu.Checked = true;
+            //    duckDuckGoSelectorMenu.Checked = false;
+            //    wikipediaSelectorMenu.Checked = false;
+            //}
+            //if (sender == duckDuckGoSelectorMenu)
+            //{
+            //    googleSelectorMenu.Checked = false;
+            //    bingSelectorMenu.Checked = false;
+            //    duckDuckGoSelectorMenu.Checked = true;
+            //    wikipediaSelectorMenu.Checked = false;
+            //}
+            //if (sender == wikipediaSelectorMenu)
+            //{
+            //    googleSelectorMenu.Checked = false;
+            //    bingSelectorMenu.Checked = false;
+            //    duckDuckGoSelectorMenu.Checked = false;
+            //    wikipediaSelectorMenu.Checked = true;
+            //} 
+            #endregion
         }
 
         private void CreateShortcut()

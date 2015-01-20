@@ -10,7 +10,6 @@ c:\users\faisal amin\documents\visual studio 2013\Projects\SystemTraySearchWinFo
 E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\bin\Debug\QuickSearch.exe.config
 E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\bin\Debug\QuickSearch.exe
 E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\bin\Debug\QuickSearch.pdb
-E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.csprojResolveAssemblyReference.cache
 E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.Properties.Resources.resources
 E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.SearchForm.resources
 E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.csproj.GenerateResource.Cache
