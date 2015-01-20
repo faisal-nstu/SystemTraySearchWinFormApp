@@ -86,6 +86,7 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="Resources\beam_i.cur" />
     <Content Include="Resources\searchIcon.png" />
     <Content Include="Resources\sysTraySearchIcon.ico" />
   </ItemGroup>

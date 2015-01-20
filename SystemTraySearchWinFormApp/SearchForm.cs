@@ -85,7 +85,7 @@ namespace SystemTraySearchWinFormApp
             {
                 try
                 {
-                    var res = "https://en.wikipedia.org/wiki/" + HttpUtility.UrlEncode(searchTerm);
+                    var res = "https://en.wikipedia.org/wiki/Special:Search?search=" + HttpUtility.UrlEncode(searchTerm);
                     Process.Start(res);
                 }
                 catch (Exception e)

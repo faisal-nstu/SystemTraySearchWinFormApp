@@ -37,7 +37,7 @@ namespace SystemTraySearchWinFormApp
             //****************************************************************************
 
             // Start up settings context menu
-            toggleStartUp = new MenuItem("Enable", ToggleStartUp);
+            toggleStartUp = new MenuItem(GetStartUpStatus(), ToggleStartUp);
             startup = new MenuItem("Start with Windows", new MenuItem[]{toggleStartUp});
             //****************************************************************************
             
@@ -50,6 +50,7 @@ namespace SystemTraySearchWinFormApp
             notifyIcon.ContextMenu = new ContextMenu(new MenuItem[]{startup,engineSelector, exitMenuItem});
             notifyIcon.Visible = true;
         }
+
 
         private void ToggleStartUp(object sender, EventArgs e)
         {
@@ -187,6 +188,19 @@ namespace SystemTraySearchWinFormApp
             if (System.IO.File.Exists(Path.Combine(startUpPath, "QuickSearch.lnk")))
             {
                 System.IO.File.Delete(Path.Combine(startUpPath, "QuickSearch.lnk"));
+            }
+        }
+
+        private string GetStartUpStatus()
+        {
+            string startUpPath = Environment.GetFolderPath(Environment.SpecialFolder.Startup);
+            if (System.IO.File.Exists(Path.Combine(startUpPath, "QuickSearch.lnk")))
+            {
+                return "Disable";
+            }
+            else
+            {
+                return "Enable";
             }
         }
     }

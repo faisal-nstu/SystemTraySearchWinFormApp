@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
+using SystemTraySearchWinFormApp.Properties;
 
 namespace SystemTraySearchWinFormApp
 {
@@ -52,6 +53,7 @@ namespace SystemTraySearchWinFormApp
             // 
             this.searchTextbox.BackColor = System.Drawing.Color.Gray;
             this.searchTextbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.searchTextbox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.searchTextbox.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.searchTextbox.ForeColor = System.Drawing.Color.Gainsboro;
             this.searchTextbox.Location = new System.Drawing.Point(12, 29);
@@ -60,6 +62,8 @@ namespace SystemTraySearchWinFormApp
             this.searchTextbox.Name = "searchTextbox";
             this.searchTextbox.Size = new System.Drawing.Size(258, 26);
             this.searchTextbox.TabIndex = 5;
+            System.Windows.Forms.Cursor curs = new System.Windows.Forms.Cursor("../../Resources/beam_i.cur");
+            this.searchTextbox.Cursor = curs;
             // 
             // searchButton
             // 
