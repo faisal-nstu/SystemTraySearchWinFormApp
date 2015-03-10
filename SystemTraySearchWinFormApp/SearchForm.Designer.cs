@@ -62,7 +62,9 @@ namespace SystemTraySearchWinFormApp
             this.searchTextbox.Name = "searchTextbox";
             this.searchTextbox.Size = new System.Drawing.Size(258, 26);
             this.searchTextbox.TabIndex = 5;
-            System.Windows.Forms.Cursor curs = new System.Windows.Forms.Cursor("../../Resources/beam_i.cur");
+            //System.Windows.Forms.Cursor curs = new System.Windows.Forms.Cursor("../../Resources/beam_i.cur");
+            System.IO.MemoryStream cursorMemoryStream = new System.IO.MemoryStream(SystemTraySearchWinFormApp.Properties.Resources.beam_i);            
+            System.Windows.Forms.Cursor curs = new Cursor(cursorMemoryStream);
             this.searchTextbox.Cursor = curs;
             // 
             // searchButton

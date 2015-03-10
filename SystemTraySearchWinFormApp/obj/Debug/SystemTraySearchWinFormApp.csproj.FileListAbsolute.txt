@@ -15,3 +15,4 @@ E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\Sys
 E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.csproj.GenerateResource.Cache
 E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\QuickSearch.exe
 E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\QuickSearch.pdb
+E:\Faisal\C#\SystemTraySearchWinFormApp\SystemTraySearchWinFormApp\obj\Debug\SystemTraySearchWinFormApp.csprojResolveAssemblyReference.cache
